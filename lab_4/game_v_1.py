@@ -18,9 +18,9 @@ COLORS = [RED, BLUE, YELLOW, GREEN, MAGENTA, CYAN]
                                     # блок используемых компонент в ф-и игры
 # ф-я , отвечающая за создание нового шара в рамках заданного пространства 
 def new_ball(screen):
-    x = randint(100, WIDTH - 100)
-    y = randint(100, HEIGHT - 100)
     r = randint(50, 80)
+    x = randint(100, WIDTH - r)
+    y = randint(100, HEIGHT - r)
     color = choice(COLORS)
     circle(screen, color, (x, y), r)
     return x, y, r
@@ -42,6 +42,7 @@ def game(screen, clock, finished):
                 print('Click!')    
                 # получение координат курсора мыши в момент клика
                 click_x, click_y = pygame.mouse.get_pos()
+                print(click_x,click_y)
                 if is_inside_ball(ball_x, ball_y, ball_r, click_x, click_y):
                     print("got")
                     score += 1      # реализация счетчика очков 
