@@ -42,7 +42,6 @@ def game(screen, clock, finished):
                 print('Click!')    
                 # получение координат курсора мыши в момент клика
                 click_x, click_y = pygame.mouse.get_pos()
-                print(click_x,click_y)
                 if is_inside_ball(ball_x, ball_y, ball_r, click_x, click_y):
                     print("got")
                     score += 1      # реализация счетчика очков 

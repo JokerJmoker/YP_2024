@@ -36,10 +36,10 @@ def game(screen, clock, finished, balls):  # передача ключевых �
                                 # подблок технических составляющих игры 
         # Отрисовка шариков
         screen.fill(BLACK)
-        """
+        
         for ball in balls:
             circle(screen, ball['color'], (ball['x'], ball['y']), ball['r'])
-        """
+        
         # Обновление экрана
         pygame.display.update()
 
@@ -66,7 +66,7 @@ def game(screen, clock, finished, balls):  # передача ключевых �
                         score += 1
                             # подблок реализации условий задачи 
         # обновление координат шариков при их столкновение с границами экрана
-        for ball in balls:
+        for ball in balls: # запускаем шарики в движение
             ball['x'] += ball['vx']
             ball['y'] += ball['vy']
             # реализация отскока в случайную сторону с разной скоростью( углубленная реализация фактора непредсказуемости)
@@ -78,11 +78,11 @@ def game(screen, clock, finished, balls):  # передача ключевых �
                 ball['x'] = WIDTH - ball['r']
                 ball['vx'] = randint(-25, -1) if ball['vx'] > 0 else randint(1, 25)
                 ball['vy'] = randint(-25, -1) if ball['vy'] > 0 else randint(1, 25) 
-            if ball['y'] < ball['r']: # снизу
+            if ball['y'] < ball['r']: # сверху
                 ball['y'] = ball['r']
                 ball['vx'] = randint(1, 25) if ball['vx'] < 0 else randint(-25, -1)
                 ball['vy'] = randint(1, 25) if ball['vy'] < 0 else randint(-25, -1) 
-            elif ball['y'] > HEIGHT - ball['r']: # сверху
+            elif ball['y'] > HEIGHT - ball['r']: # снизу 
                 ball['y'] = HEIGHT - ball['r']
                 ball['vx'] = randint(-25, -1) if ball['vx'] > 0 else randint(1, 25)
                 ball['vy'] = randint(-25, -1) if ball['vy'] > 0 else randint(1, 25)  
