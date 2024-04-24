@@ -71,19 +71,19 @@ def game(screen, clock, finished, balls):  # передача ключевых �
             ball['y'] += ball['vy']
             # реализация отскока в случайную сторону с разной скоростью( углубленная реализация фактора непредсказуемости)
             if ball['x'] < ball['r']: # слева
-                ball['x'] = ball['r']
+                ball['x'] = ball['r'] + 1
                 ball['vx'] = randint(1, 25) if ball['vx'] < 0 else randint(-25, -1)  
                 ball['vy'] = randint(1, 25) if ball['vy'] < 0 else randint(-25, -1)
             elif ball['x'] > WIDTH - ball['r']: # справа
-                ball['x'] = WIDTH - ball['r']
+                ball['x'] = WIDTH - ball['r'] -1
                 ball['vx'] = randint(-25, -1) if ball['vx'] > 0 else randint(1, 25)
                 ball['vy'] = randint(-25, -1) if ball['vy'] > 0 else randint(1, 25) 
             if ball['y'] < ball['r']: # сверху
-                ball['y'] = ball['r']
+                ball['y'] = ball['r'] + 1
                 ball['vx'] = randint(1, 25) if ball['vx'] < 0 else randint(-25, -1)
                 ball['vy'] = randint(1, 25) if ball['vy'] < 0 else randint(-25, -1) 
             elif ball['y'] > HEIGHT - ball['r']: # снизу 
-                ball['y'] = HEIGHT - ball['r']
+                ball['y'] = HEIGHT - ball['r'] -1
                 ball['vx'] = randint(-25, -1) if ball['vx'] > 0 else randint(1, 25)
                 ball['vy'] = randint(-25, -1) if ball['vy'] > 0 else randint(1, 25)  
                             # блок ф-и игры 
